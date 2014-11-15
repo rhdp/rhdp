@@ -8,7 +8,7 @@ darkfg = #c0c0c0
 mediumfg = #e0e0e0
 lightfg = #f0f0f0
 
-green = #70f070
+bluefg = #40c0f0
 
 headerheight = 50px
 toolbarinside = 30px
@@ -54,6 +54,13 @@ html, body
 	border solid mediumbg
 	border-width 0 0 toolbarborder 0
 
+	> *
+		float right
+		color mediumfg
+		background mediumbg
+		border 0
+		border-left 1px solid darkbg
+
 #topicbar
 	position absolute
 	top headerheight + toolbarheight
@@ -70,16 +77,16 @@ html, body
 	bottom 0
 	background lightbg
 
+#submit
+	height 100%
+	width 80px
+	padding 10px
+	line-height 10px
+
 #search
-	position absolute
-	top 0
-	bottom 0
-	right 0
+	height calc(100% - 20px)
 	width 200px
 	padding 10px
-	color mediumfg
-	background mediumbg
-	border 0
 
 .article
 	position absolute
@@ -88,14 +95,15 @@ html, body
 	right 0
 	bottom 0
 	padding 20px
-	color green
+	color lightfg
 
 .topicnode
 	width calc(100% - 10px)
 	height 30px
 	padding 5px
+	line-height 30px
 	background mediumbg
-	color darkfg
+	color bluefg
 	transition .1s
 
 	&:hover, &.selected

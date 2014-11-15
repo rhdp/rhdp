@@ -6,22 +6,22 @@ var config = require('./config'),
 
 	logger = require('morgan')('dev'),
 	session = require('express-session'),
-    bodyParser = require('body-parser'),
-    compression = require('compression'),
+	bodyParser = require('body-parser'),
+	compression = require('compression'),
 	httpres = require('./util/httpres');
 
 app
-    .set('views', './views')
-    .set('view engine', 'jade')
+	.set('views', './views')
+	.set('view engine', 'jade')
 	.set('view cache', true);
 
 app
 	.use([
 		logger,
 		session({
-		    secret: config.secret,
-		    resave: true,
-		    saveUninitialized: true
+			secret: config.secret,
+			resave: true,
+			saveUninitialized: true
 		}),
 		bodyParser.json(),
 		bodyParser.urlencoded({
@@ -34,10 +34,10 @@ app
 	.use('/', require('./router.js')(io))
 
 	.use(function(req, res) {
-        res.render('error', {
-            err: httpres[404]
-        });
-    });
+		res.render('error', {
+			err: httpres[404]
+		});
+	});
 
 module.exports = {
 	app: app,
