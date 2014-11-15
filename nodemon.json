@@ -1,0 +1,7 @@
+{
+	"ext": "js jade",
+	"ignore": [
+		"./client",
+		"./public"
+	]
+}

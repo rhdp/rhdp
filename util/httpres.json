@@ -1,0 +1,397 @@
+{
+	"100": {
+		"code": 100,
+		"description": "Continue",
+		"message": "The server is waiting for the request body."
+	},
+	"101": {
+		"code": 101,
+		"description": "Switching Protocols",
+		"message": "The server is switching protocols."
+	},
+	"102": {
+		"code": 102,
+		"description": "Processing",
+		"message": "The server is processing the request."
+	},
+	"200": {
+		"code": 200,
+		"description": "OK",
+		"message": "The request was successful."
+	},
+	"201": {
+		"code": 201,
+		"description": "Created",
+		"message": "The resource has been created."
+	},
+	"202": {
+		"code": 202,
+		"description": "Accepted",
+		"message": "The server has accepted and is processing the request."
+	},
+	"203": {
+		"code": 203,
+		"description": "Non-Authoritative Information",
+		"message": "The server has accepted the request, but the information may be from a different source."
+	},
+	"204": {
+		"code": 204,
+		"description": "No Content",
+		"message": "The server has accepted the request, and no content exists."
+	},
+	"205": {
+		"code": 205,
+		"description": "Reset Content",
+		"message": "The server has accepted the request, and no content exists."
+	},
+	"206": {
+		"code": 206,
+		"description": "Partial Content",
+		"message": "A portion of the requested resource is being returned."
+	},
+	"207": {
+		"code": 207,
+		"description": "Multi-Status",
+		"message": "Multiple response codes were returned."
+	},
+	"208": {
+		"code": 208,
+		"description": "Already Reported",
+		"message": "The request purpose has already been processed."
+	},
+	"226": {
+		"code": 226,
+		"description": "IM Used",
+		"message": "The response for a previous instance has been returned."
+	},
+	"300": {
+		"code": 300,
+		"description": "Multiple Choices",
+		"message": "Multiple formats of the requested resource exist."
+	},
+	"301": {
+		"code": 301,
+		"description": "Moved Permanently",
+		"message": "The requested resource has been permanently moved."
+	},
+	"302": {
+		"code": 302,
+		"description": "Found",
+		"message": "The requested resource was found."
+	},
+	"303": {
+		"code": 303,
+		"description": "See Other",
+		"message": "The requested resource is available at another location."
+	},
+	"304": {
+		"code": 304,
+		"description": "Not Modified",
+		"message": "The requested resource has not been modified since the previous request."
+	},
+	"305": {
+		"code": 305,
+		"description": "Use Proxy",
+		"message": "The requested resource is available through a proxy."
+	},
+	"306": {
+		"code": 306,
+		"description": "Switch Proxy",
+		"message": "The requested resource should be accessed through a proxy."
+	},
+	"307": {
+		"code": 307,
+		"description": "Temporary Redirect",
+		"message": "The requested resource is temporarily available at another location."
+	},
+	"308": {
+		"code": 308,
+		"description": "Permanent Redirect",
+		"message": "The requested resource should be accessed from another location."
+	},
+	"400": {
+		"code": 400,
+		"description": "Bad Request",
+		"message": "The request was poorly formed and could not be processed."
+	},
+	"401": {
+		"code": 401,
+		"description": "Unauthorized",
+		"message": "The request was not authenticated."
+	},
+	"402": {
+		"code": 402,
+		"description": "Payment Required",
+		"message": "The requested resource requires a payment."
+	},
+	"403": {
+		"code": 403,
+		"description": "Forbidden",
+		"message": "The request was not sufficiently authorized."
+	},
+	"404": {
+		"code": 404,
+		"description": "Not Found",
+		"message": "The requested resource could not be found."
+	},
+	"405": {
+		"code": 405,
+		"description": "Method Not Allowed",
+		"message": "The request method was not allowed."
+	},
+	"406": {
+		"code": 406,
+		"description": "Not Acceptable",
+		"message": "The resource could not be represented in the requested format."
+	},
+	"407": {
+		"code": 407,
+		"description": "Proxy Authentication Required",
+		"message": "An authentication by proxy is required to access this resource."
+	},
+	"408": {
+		"code": 408,
+		"description": "Request Timeout",
+		"message": "The client response timed out."
+	},
+	"409": {
+		"code": 409,
+		"description": "Conflict",
+		"message": "The request contained conflicting information."
+	},
+	"410": {
+		"code": 410,
+		"description": "Gone",
+		"message": "The requested resource will no longer be available."
+	},
+	"411": {
+		"code": 411,
+		"description": "Length Required",
+		"message": "The request did not specify content length."
+	},
+	"412": {
+		"code": 412,
+		"description": "Precondition Failed",
+		"message": "The server did not meet one of the preconditions that was requested."
+	},
+	"413": {
+		"code": 413,
+		"description": "Request Entity Too Large",
+		"message": "The request was larger than the server was willing or able to process."
+	},
+	"414": {
+		"code": 414,
+		"description": "Request-URI Too Long",
+		"message": "The request URI was too long for the server to process."
+	},
+	"415": {
+		"code": 415,
+		"description": "Unsupported Media Type",
+		"message": "The server does not support the provided media type."
+	},
+	"416": {
+		"code": 416,
+		"description": "Requested Range Not Satisfiable",
+		"message": "The server could not return the a portion of the requested resource."
+	},
+	"417": {
+		"code": 417,
+		"description": "Expectation Failed",
+		"message": "The server could not meet the provided expectations."
+	},
+	"418": {
+		"code": 418,
+		"description": "I'm a Teapot",
+		"message": "The requested resource cannot be brewed with a teapot."
+	},
+	"419": {
+		"code": 419,
+		"description": "Authentication Timeout",
+		"message": "The authentication for the request has timed out."
+	},
+	"420": {
+		"code": 420,
+		"description": "Enhance Your Calm",
+		"message": "The request has exceeded the quota."
+	},
+	"422": {
+		"code": 422,
+		"description": "Unprocessable Entity",
+		"message": "The request was well-formed but could not be processed."
+	},
+	"423": {
+		"code": 423,
+		"description": "Locked",
+		"message": "The requested resource was locked."
+	},
+	"424": {
+		"code": 424,
+		"description": "Failed Dependency",
+		"message": "The request could not be processed due to the absence of a prerequisite request."
+	},
+	"426": {
+		"code": 426,
+		"description": "Upgrade Required",
+		"message": "The request should be made through a different protocol."
+	},
+	"428": {
+		"code": 428,
+		"description": "Precondition Required",
+		"message": "The request should be conditional."
+	},
+	"429": {
+		"code": 429,
+		"description": "Too Many Requests",
+		"message": "The request has exceeded the quota."
+	},
+	"431": {
+		"code": 431,
+		"description": "Request Header Fields Too Large",
+		"message": "One or more of the request headers were larger than the server was willing or able to process."
+	},
+	"444": {
+		"code": 444,
+		"description": "No Response",
+		"message": "The server was unwilling to respond."
+	},
+	"449": {
+		"code": 449,
+		"description": "Retry With",
+		"message": "The request should be retried after performing an appropriate action."
+	},
+	"450": {
+		"code": 450,
+		"description": "Blocked By Windows Parental Controls",
+		"message": "The page was blocked by Windows Parental Controls."
+	},
+	"451": {
+		"code": 451,
+		"description": "Unavailable For Legal Reasons",
+		"message": "The requested resource is unavailable due to censorship or a mandated denial."
+	},
+	"494": {
+		"code": 494,
+		"description": "Request Header Too Large",
+		"message": "One or more of the request headers were larger than the server was willing or able to process."
+	},
+	"495": {
+		"code": 495,
+		"description": "Cert Error",
+		"message": "The SSL certificate was invalid."
+	},
+	"496": {
+		"code": 496,
+		"description": "No Cert",
+		"message": "No SSL certificate was provided."
+	},
+	"497": {
+		"code": 497,
+		"description": "HTTP to HTTPS",
+		"message": "An HTTP request was made to an HTTPS endpoint."
+	},
+	"498": {
+		"code": 498,
+		"description": "Token expired/invalid",
+		"message": "The provided token has expired or is invalid."
+	},
+	"499": {
+		"code": 499,
+		"description": "Client Closed Request",
+		"message": "The request was cancelled."
+	},
+	"500": {
+		"code": 500,
+		"description": "Internal Server Error",
+		"message": "The server encountered an unexpected condition."
+	},
+	"501": {
+		"code": 501,
+		"description": "Not Implemented",
+		"message": "The request method has not been implemented."
+	},
+	"502": {
+		"code": 502,
+		"description": "Bad Gateway",
+		"message": "The server received an invalid response from the upstream server."
+	},
+	"503": {
+		"code": 503,
+		"description": "Service Unavailable",
+		"message": "The server is temporarily unavailable."
+	},
+	"504": {
+		"code": 504,
+		"description": "Gateway Timeout",
+		"message": "The request to the upstream server timed out."
+	},
+	"505": {
+		"code": 505,
+		"description": "HTTP Version Not Supported",
+		"message": "The HTTP protocol was not supported."
+	},
+	"506": {
+		"code": 506,
+		"description": "Variant Also Negotiates",
+		"message": "Content negotiation resulted in a circular reference."
+	},
+	"507": {
+		"code": 507,
+		"description": "Insufficient Storage",
+		"message": "The server did not have sufficient storage to process the request."
+	},
+	"508": {
+		"code": 508,
+		"description": "Loop Detected",
+		"message": "The server detected an infinite loop while processing the request."
+	},
+	"509": {
+		"code": 509,
+		"description": "Bandwidth Limit Exceeded",
+		"message": "The server exceeded the bandwidth limit."
+	},
+	"510": {
+		"code": 510,
+		"description": "Not Extended",
+		"message": "The server required further extension to the request."
+	},
+	"511": {
+		"code": 511,
+		"description": "Network Authentication Required",
+		"message": "Authentication is required for access to the network."
+	},
+	"520": {
+		"code": 520,
+		"description": "Origin Error",
+		"message": "The server experienced a connection error with the proxy."
+	},
+	"521": {
+		"code": 521,
+		"description": "Web server is down",
+		"message": "The server refused the connection."
+	},
+	"522": {
+		"description": "Connection timed out",
+		"code": 522,
+		"message": "The connection timed out."
+	},
+	"523": {
+		"description": "Proxy Declined Request",
+		"code": 523,
+		"message": "The server restricted access to the requested resource."
+	},
+	"524": {
+		"description": "A timeout occurred",
+		"code": 524,
+		"message": "The server experienced a network read timeout."
+	},
+	"598": {
+		"description": "Network read timeout error",
+		"code": 598,
+		"message": "The server experienced a network read timeout."
+	},
+	"599": {
+		"description": "Network connect timeout error",
+		"code": 599,
+		"message": "The server experienced a network connection timeout."
+	}
+}

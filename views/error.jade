@@ -1,0 +1,12 @@
+extends base
+
+block head
+	link(rel='stylesheet', href='/css/error.css')
+
+block content
+	h1 #{err.code} #{err.description}
+
+	div= err.message
+
+	if err.extra
+		div= err.extra

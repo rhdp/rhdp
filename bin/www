@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+var config = require('../config'),
+	port = process.env.PORT || config.port || 3000,
+	server = require('../app').server,
+	db = require('../db/init')(config.db, function() {
+		server.listen(port, function() {
+
+		});
+	});
