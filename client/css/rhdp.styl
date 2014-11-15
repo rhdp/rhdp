@@ -1,7 +1,77 @@
+bg = #202020
+dark = #282828
+medium = #2c2c2c
+light = #303030
+
+green = #70f070
+
+headerheight = 50px
+toolbarinside = 30px
+
+topicwidth = 20%
+
+toolbarborder = 2px
+
+toolbarheight = toolbarinside + toolbarborder
+
 html, body
 	margin 0 auto
 	padding 0
+	background bg
 
 *
 	outline none
 	font-family 'Open Sans', Helvetica, sans-serif
+
+#header
+	position absolute
+	top 0
+	left 0
+	right 0
+	height headerheight
+	background bg
+
+#toolbar
+	position absolute
+	top headerheight
+	left 0
+	right 0
+	height toolbarinside
+	background dark
+	border solid medium
+	border-width 0 0 toolbarborder 0
+
+#topicbar
+	position absolute
+	top headerheight + toolbarheight
+	left 0
+	bottom 0
+	width topicwidth
+	background dark
+
+#content
+	position absolute
+	top headerheight + toolbarheight
+	left topicwidth
+	right 0
+	bottom 0
+	background light
+
+#search
+	position absolute
+	top 0
+	bottom 0
+	right 0
+	width 200px
+	padding 10px
+	color #f0f0f0
+	background medium
+	border 0
+
+.article
+	position absolute
+	top 0
+	left 0
+	right 0
+	bottom 0
+	color green
