@@ -1,7 +1,12 @@
 bg = #202020
-dark = #282828
-medium = #2c2c2c
-light = #303030
+
+darkbg = #282828
+mediumbg = #2c2c2c
+lightbg = #303030
+
+darkfg = #c0c0c0
+mediumfg = #e0e0e0
+lightfg = #f0f0f0
 
 green = #70f070
 
@@ -13,6 +18,14 @@ topicwidth = 20%
 toolbarborder = 2px
 
 toolbarheight = toolbarinside + toolbarborder
+
+transition()
+	-webkit-transition arguments
+	-khtml-transition arguments
+	-moz-transition arguments
+	-ms-transition arguments
+	-o-transition arguments
+	transition arguments
 
 html, body
 	margin 0 auto
@@ -37,8 +50,8 @@ html, body
 	left 0
 	right 0
 	height toolbarinside
-	background dark
-	border solid medium
+	background darkbg
+	border solid mediumbg
 	border-width 0 0 toolbarborder 0
 
 #topicbar
@@ -47,7 +60,7 @@ html, body
 	left 0
 	bottom 0
 	width topicwidth
-	background dark
+	background darkbg
 
 #content
 	position absolute
@@ -55,7 +68,7 @@ html, body
 	left topicwidth
 	right 0
 	bottom 0
-	background light
+	background lightbg
 
 #search
 	position absolute
@@ -64,8 +77,8 @@ html, body
 	right 0
 	width 200px
 	padding 10px
-	color #f0f0f0
-	background medium
+	color mediumfg
+	background mediumbg
 	border 0
 
 .article
@@ -74,4 +87,16 @@ html, body
 	left 0
 	right 0
 	bottom 0
+	padding 20px
 	color green
+
+.topicnode
+	width calc(100% - 10px)
+	height 30px
+	padding 5px
+	background mediumbg
+	color darkfg
+	transition .1s
+
+	&:hover, &.selected
+		background lightbg

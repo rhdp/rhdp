@@ -1,19 +1,3 @@
-var cachedArticles = [],
-	Article = can.Model.extend({
-		render: marked
-	}, {
-		init: function(md) {
-			this.html = Article.render(md);
-		},
-		html: ''
-	}),
-	ArticleView = can.Control.extend({
-		init: function(article) {
-			this.article = article;
-		},
-		article: {}
-	});
-
 $(document).ready(function() {
 	var socket = io.connect(),
 		T = templatizer;
@@ -24,13 +8,45 @@ $(document).ready(function() {
 		topicbar = $('#topicbar'),
 		content = $('#content');
 
-	var loadArticle = function(md) {
-		var a = new Article(md),
-			v = $(T.article(a)).appendTo(content),
-			c = new ArticleView(v, a);
-	};
+	var articleCache = [],
+		previous,
+		ArticleView = can.Control.extend({
+			init: function(el, opt) {
+				this.parent = opt.parent;
+			},
+			destroy: function() {
 
-	loadArticle('# Hello\n## Hello\n ### Hello\n#### Hello\n##### Hello\n###### Hello');
+			}
+		}),
+		ArticleEntryView = can.Control.extend({
+			init: function(el, opt) {
+				this.parent = opt.parent;
+			},
+			'click': function() {
+				IArticle.setArticle(this.parent);
+			}
+		});
+		IArticle = can.Construct.extend({
+			setArticle: function(i) {
+				if (previous) {
+					previous.removeClass('selected');
+				}
+				previous = i.entryView.element;
+				content.html(i.view.element);
+				previous.addClass('selected');
+			}
+		}, {
+			init: function(article) {
+				article.html = marked(article.md);
+				this.article = article;
+				this.view = new ArticleView($(T.article(article)), {
+					parent: this
+				});
+				this.entryView = new ArticleEntryView($(T.topicnode(article)), {
+					parent: this
+				});
+			}
+		});
 
 	socket
 		.emit('init', {
@@ -38,5 +54,14 @@ $(document).ready(function() {
 		})
 		.on('response', function(data) {
 
+		})
+		.on('server.articles', function(raws) {
+			for (var a in raws) {
+				articleCache.push(new IArticle(raws[a]));
+			}
+			for (var a in articleCache) {
+				topicbar.append(articleCache[a].entryView.element);
+			}
 		});
+
 });
