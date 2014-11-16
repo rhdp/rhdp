@@ -9,7 +9,7 @@ $(document).ready(function() {
 		content = $('#content');
 
 	var articleCache = [],
-		previous,
+		previousEntry,
 		ArticleView = can.Control.extend({
 			init: function(el, opt) {
 				this.parent = opt.parent;
@@ -28,12 +28,12 @@ $(document).ready(function() {
 		});
 		IArticle = can.Construct.extend({
 			setArticle: function(i) {
-				if (previous) {
-					previous.removeClass('selected');
+				if (previousEntry) {
+					previousEntry.removeClass('selected');
 				}
-				previous = i.entryView.element;
-				content.html(i.view.element);
-				previous.addClass('selected');
+				previousEntry = i.entryView.element;
+				content.html(i.view.element.fadeIn(100));
+				previousEntry.addClass('selected');
 			}
 		}, {
 			init: function(article) {
@@ -55,13 +55,9 @@ $(document).ready(function() {
 		.on('response', function(data) {
 
 		})
-		.on('server.articles', function(raws) {
-			for (var a in raws) {
-				articleCache.push(new IArticle(raws[a]));
-			}
-			for (var a in articleCache) {
-				topicbar.append(articleCache[a].entryView.element);
-			}
+		.on('server.article', function(raw) {
+			articleCache[raw.title] = new IArticle(raw);
+			topicbar.append(articleCache[raw.title].entryView.element.hide().fadeIn(100));
 		});
 
 });

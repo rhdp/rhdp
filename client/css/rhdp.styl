@@ -8,7 +8,7 @@ darkfg = #c0c0c0
 mediumfg = #e0e0e0
 lightfg = #f0f0f0
 
-bluefg = #40c0f0
+bluefg = #29c596
 
 headerheight = 50px
 toolbarinside = 30px
@@ -27,6 +27,14 @@ transition()
 	-o-transition arguments
 	transition arguments
 
+user-select()
+	-webkit-touch-callout arguments
+	-webkit-user-select arguments
+	-khtml-user-select arguments
+	-moz-user-select arguments
+	-ms-user-select arguments
+	user-select arguments
+
 html, body
 	margin 0 auto
 	padding 0
@@ -35,6 +43,7 @@ html, body
 *
 	outline none
 	font-family 'Open Sans', Helvetica, sans-serif
+	transition .1s
 
 #header
 	position absolute
@@ -61,6 +70,9 @@ html, body
 		border 0
 		border-left 1px solid darkbg
 
+		&:hover
+			background lightbg
+
 #topicbar
 	position absolute
 	top headerheight + toolbarheight
@@ -76,6 +88,14 @@ html, body
 	right 0
 	bottom 0
 	background lightbg
+
+#github
+	float right
+	color darkfg
+	background darkbg
+	height 100%
+	border 0
+	padding 10px
 
 #submit
 	height 100%
@@ -104,7 +124,8 @@ html, body
 	line-height 30px
 	background mediumbg
 	color bluefg
-	transition .1s
+	user-select none
+	cursor default
 
 	&:hover, &.selected
 		background lightbg

@@ -44,8 +44,11 @@ module.exports = function(io) {
 				})
 				.on('disconnect', function() {
 
-				})
-				.emit('server.articles', shimArticles);
+				});
+
+			for (var a in shimArticles) {
+				socket.emit('server.article', shimArticles[a]);
+			}
 		});
 	});
 
