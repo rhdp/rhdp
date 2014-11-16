@@ -32,7 +32,7 @@ $(document).ready(function() {
 					previousEntry.removeClass('selected');
 				}
 				previousEntry = i.entryView.element;
-				content.html(i.view.element.fadeIn(100));
+				content.html(i.view.element.fadeIn(50));
 				previousEntry.addClass('selected');
 			}
 		}, {
@@ -57,7 +57,7 @@ $(document).ready(function() {
 		})
 		.on('server.article', function(raw) {
 			articleCache[raw.title] = new IArticle(raw);
-			topicbar.append(articleCache[raw.title].entryView.element.hide().fadeIn(100));
+			topicbar.append(articleCache[raw.title].entryView.element.hide().fadeIn(50));
 		});
 
 });
