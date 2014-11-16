@@ -39,10 +39,10 @@ $(document).ready(function() {
 			init: function(article) {
 				article.html = marked(article.md);
 				this.article = article;
-				this.view = new ArticleView($(T.article(article)), {
+				this.view = new ArticleView(T.article(article), {
 					parent: this
 				});
-				this.entryView = new ArticleEntryView($(T.topicnode(article)), {
+				this.entryView = new ArticleEntryView(T.topicnode(article), {
 					parent: this
 				});
 			}
