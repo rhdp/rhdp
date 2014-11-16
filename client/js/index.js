@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	var socket = io.connect(),
-		T = templatizer;
+		T = templatizer,
+		articleCache = [];
 
 	var header = $('#header'),
 		toolbar = $('#toolbar'),
@@ -8,8 +9,8 @@ $(document).ready(function() {
 		topicbar = $('#topicbar'),
 		content = $('#content');
 
-	var articleCache = [],
-		previousEntry,
+
+	var previousEntry,
 		ArticleView = can.Control.extend({
 			init: function(el, opt) {
 				this.parent = opt.parent;
@@ -23,7 +24,7 @@ $(document).ready(function() {
 				this.parent = opt.parent;
 			},
 			'click': function() {
-				IArticle.setArticle(this.parent);
+				can.route.attr('article', this.parent.article.title);
 			}
 		});
 		IArticle = can.Construct.extend({
@@ -47,6 +48,17 @@ $(document).ready(function() {
 				});
 			}
 		});
+
+	var router = new (can.Control({
+		':article route': function(data) {
+			var a = articleCache[data.article];
+			if (a) {
+				IArticle.setArticle(a);
+			}
+		}
+	}))(window);
+	window.location.hash = '';
+	can.route.ready();
 
 	socket
 		.emit('init', {
