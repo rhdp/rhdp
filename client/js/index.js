@@ -9,6 +9,18 @@ $(document).ready(function() {
 		topicbar = $('#topicbar'),
 		content = $('#content');
 
+	// topicbar.niceScroll({
+	// 	cursorcolor: '#404040',
+	// 	cursorborder: 'none',
+	// 	cursorborderradius: 0,
+	// 	scrollspeed: 20
+	// });
+	// content.niceScroll({
+	// 	cursorcolor: '#404040',
+	// 	cursorborder: 'none',
+	// 	cursorborderradius: 0,
+	// 	scrollspeed: 50
+	// });
 
 	var previousEntry,
 		ArticleView = can.Control.extend({
