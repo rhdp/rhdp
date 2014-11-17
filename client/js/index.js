@@ -46,6 +46,7 @@ $(document).ready(function() {
 				this.entryView = new ArticleEntryView(T.topicnode(article), {
 					parent: this
 				});
+				topicbar.append(this.entryView.element.hide().fadeIn(50));
 			}
 		});
 
@@ -69,7 +70,6 @@ $(document).ready(function() {
 		})
 		.on('server.article', function(raw) {
 			articleCache[raw.title] = new IArticle(raw);
-			topicbar.append(articleCache[raw.title].entryView.element.hide().fadeIn(50));
 		});
 
 });

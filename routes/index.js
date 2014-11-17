@@ -46,8 +46,13 @@ module.exports = function(io) {
 
 				});
 
+			var i = 0;
 			for (var a in shimArticles) {
-				socket.emit('server.article', shimArticles[a]);
+				setTimeout((function(a) {
+					return function() {
+						socket.emit('server.article', a);
+					}
+				})(shimArticles[a]), i += 10);
 			}
 		});
 	});
