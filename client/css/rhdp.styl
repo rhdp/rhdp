@@ -1,4 +1,4 @@
-bg = #202020
+bg = #242424
 
 darkbg = #282828
 mediumbg = #2c2c2c
@@ -10,14 +10,13 @@ lightfg = #f0f0f0
 
 bluefg = #29c596
 
-headerheight = 50px
-toolbarinside = 30px
+headerheight = 42px
+toolbarheight = 32px
 
 topicwidth = 20%
 
+headerborder = 2px
 toolbarborder = 2px
-
-toolbarheight = toolbarinside + toolbarborder
 
 transition()
 	-webkit-transition arguments
@@ -44,6 +43,13 @@ html, body
 	outline none
 	font-family 'Open Sans', Helvetica, sans-serif
 	transition .1s
+	box-sizing border-box
+
+	&:active
+		transition .05s ease-in
+
+a
+	text-decoration none
 
 #header
 	position absolute
@@ -52,16 +58,34 @@ html, body
 	right 0
 	height headerheight
 	background bg
+	border-bottom headerborder solid bg
+
+	> a
+		float right
+		color darkfg
+		background darkbg
+		border 0
+		border-left 1px solid bg
+		height 100%
+		line-height 20px
+		padding 10px
+		font-size 13px
+
+		&:hover
+			background mediumbg
+
+		&:active
+			background bg
+
 
 #toolbar
 	position absolute
 	top headerheight
 	left 0
 	right 0
-	height toolbarinside
+	height toolbarheight
 	background darkbg
-	border solid mediumbg
-	border-width 0 0 toolbarborder 0
+	border-bottom toolbarborder solid mediumbg
 
 	> *
 		float right
@@ -72,6 +96,9 @@ html, body
 
 		&:hover
 			background lightbg
+
+		&:active
+			background darkbg
 
 #topicbar
 	position absolute
@@ -89,14 +116,6 @@ html, body
 	bottom 0
 	background lightbg
 
-#github
-	float right
-	color darkfg
-	background darkbg
-	height 100%
-	border 0
-	padding 10px
-
 #submit
 	height 100%
 	width 80px
@@ -104,8 +123,8 @@ html, body
 	line-height 10px
 
 #search
-	height calc(100% - 20px)
-	width 200px
+	height 100%
+	width 221px
 	padding 10px
 
 .article
@@ -119,14 +138,15 @@ html, body
 	overflow auto
 
 .topicnode
-	width calc(100% - 10px)
-	height 30px
+	width 100%
+	height 40px
 	padding 5px
 	line-height 30px
 	background mediumbg
 	color bluefg
 	user-select none
 	cursor default
+	font-size 16px
 
 	&:hover, &.selected
 		background lightbg
