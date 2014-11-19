@@ -1,0 +1,1 @@
+!function(i){var e,n=function(){if(void 0===e){var n=i('<div style="height:1px;"/>'),t=i('<div style="width:50px;height:0;overflow-y:scroll;position:fixed;left:-100px;"></div>').append(n);i("body").append(t),e=t.innerWidth()-n.innerWidth(),t.remove()}return e};i.fn.escrow=function(){return this.each(function(){var e=i(this);e.css({width:"+="+n()})})}}(jQuery);

@@ -48,6 +48,7 @@ html, body
 	font-family 'Open Sans', Helvetica, sans-serif
 	transition .1s
 	box-sizing border-box
+	text-shadow 0 0 3px #111
 
 	&:active
 		transition .05s ease-in
@@ -111,7 +112,15 @@ a
 	bottom 0
 	width topicwidth
 	background darkbg
-	overflow auto
+	overflow hidden
+
+#topicport
+	position absolute
+	top 0
+	left 0
+	right 0
+	bottom 0
+	overflow hidden
 
 #content
 	position absolute
@@ -120,7 +129,15 @@ a
 	right 0
 	bottom 0
 	background lightbg
-	overflow auto
+	overflow hidden
+
+#contentport
+	position absolute
+	top 0
+	left 0
+	right 0
+	bottom 0
+	overflow hidden
 
 #submit
 	height 100%
@@ -134,13 +151,11 @@ a
 	padding 10px
 
 .article
-	position absolute
-	top 0
-	left 0
-	right 0
-	bottom 0
+	height 100%
+	width 100%
 	padding 20px
 	color lightfg
+	overflow auto
 
 .topicnode
 	width 100%

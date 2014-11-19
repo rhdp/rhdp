@@ -7,20 +7,12 @@ $(document).ready(function() {
 		toolbar = $('#toolbar'),
 		search = $('#search'),
 		topicbar = $('#topicbar'),
-		content = $('#content');
+		topicport = $('#topicport'),
+		content = $('#content'),
+		contentport = $('#contentport');
 
-	// topicbar.niceScroll({
-	// 	cursorcolor: '#404040',
-	// 	cursorborder: 'none',
-	// 	cursorborderradius: 0,
-	// 	scrollspeed: 20
-	// });
-	// content.niceScroll({
-	// 	cursorcolor: '#404040',
-	// 	cursorborder: 'none',
-	// 	cursorborderradius: 0,
-	// 	scrollspeed: 50
-	// });
+		topicport.escrow();
+		contentport.escrow();
 
 	var previousEntry,
 		ArticleView = can.Control.extend({
@@ -45,7 +37,7 @@ $(document).ready(function() {
 					previousEntry.removeClass('selected');
 				}
 				previousEntry = i.entryView.element;
-				content.html(i.view.element.fadeIn(50));
+				contentport.html(i.view.element.fadeIn(50));
 				previousEntry.addClass('selected');
 			}
 		}, {
@@ -58,7 +50,7 @@ $(document).ready(function() {
 				this.entryView = new ArticleEntryView(T.topicnode(article), {
 					parent: this
 				});
-				topicbar.append(this.entryView.element.hide().fadeIn(50));
+				topicport.append(this.entryView.element.hide().fadeIn(50));
 			}
 		});
 
