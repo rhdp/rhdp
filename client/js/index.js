@@ -3,19 +3,72 @@ $(document).ready(function() {
 		T = templatizer,
 		articleCache = [];
 
-	var header = $('#header'),
+	var body = $(document.body),
+		header = $('#header'),
 		toolbar = $('#toolbar'),
 		search = $('#search'),
 		topicbar = $('#topicbar'),
 		topicport = $('#topicport'),
 		content = $('#content'),
-		contentport = $('#contentport');
+		contentport = $('#contentport'),
+		create = $('#create'),
+		modal = $('#modal'),
+		edit = $('#edit');
 
-		topicport.escrow();
-		contentport.escrow();
+	topicport.escrow();
+	contentport.escrow();
 
 	var previousEntry,
-		ArticleView = can.Control.extend({
+		previousArticle;
+
+	var mirror = CodeMirror.fromTextArea(edit.find('.editor')[0], {
+			lineNumbers: true,
+			lineWrapping: true,
+			mode: 'markdown',
+			theme: 'base16-dark'
+		}),
+		render = edit.find('.render');
+
+	body.append(edit);
+	edit.find('.editwrap').escrow();
+	render.escrow();
+	mirror.refresh();
+
+	modal.hide();
+	edit.hide();
+
+	var editclose = function() {
+			if (!edit.is(':hover')) {
+				body.off('click.edit');
+				modal.fadeOut(200);
+				edit.fadeOut(200);
+			}
+		},
+		editopencurrent = function(e) {
+			e.stopPropagation();
+			mirror.setValue(previousArticle.md);
+			mirror.clearHistory();
+			edit.find('.title').val(previousArticle.title);
+			editopenwork(e);
+		},
+		editopenwork = function(e) {
+			e.stopPropagation();
+			modal.fadeIn(200);
+			edit.fadeIn(200).keyup();
+			mirror.refresh();
+			mirror.focus();
+			body.on('click.edit', editclose);
+		};
+
+	create.click(editopenwork);
+
+	edit.keyup(function() {
+		render.html(marked('#' + edit.find('.title').val() + '\n' + mirror.getValue()));
+	});
+
+	contentport.on('click', '.change', editopencurrent);
+
+	var ArticleView = can.Control.extend({
 			init: function(el, opt) {
 				this.parent = opt.parent;
 			},
@@ -37,12 +90,13 @@ $(document).ready(function() {
 					previousEntry.removeClass('selected');
 				}
 				previousEntry = i.entryView.element;
+				previousArticle = i.article;
 				contentport.html(i.view.element.fadeIn(50));
 				previousEntry.addClass('selected');
 			}
 		}, {
 			init: function(article) {
-				article.html = marked(article.md);
+				article.html = marked('#' + article.title + '\n' + article.md);
 				this.article = article;
 				this.view = new ArticleView(T.article(article), {
 					parent: this

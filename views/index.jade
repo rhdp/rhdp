@@ -4,14 +4,24 @@ block head
 	script(src='/js/index.js')
 
 block content
-	#header
-		a(href='https://github.com/rhdp/rhdp', target='_blank') Github
-		a(href='http://systemic.io:8080', target='_blank') BBS
-		a(href='http://www.pokecommunity.com/showthread.php?t=338515', target='_blank') PC
-	#toolbar
-		input#search(placeholder='Search')
-		button#submit Submit
-	#topicbar.scroll
-		#topicport
-	#content.scroll
-		#contentport
+	#wrapper
+		#header
+			a(href='https://github.com/rhdp/rhdp', target='_blank') Github
+			a(href='http://systemic.io:8080', target='_blank') BBS
+			a(href='http://www.pokecommunity.com/showthread.php?t=338515', target='_blank') PC
+		#toolbar
+			input#search(placeholder='Search')
+			button#create Create
+		#topicbar.scroll
+			#topicport
+		#content.scroll
+			#contentport
+	#modal
+		.dialog#edit
+			.wrap
+				.editwrap
+					textarea.editor
+				.render
+			.form
+				input.title(placeholder='Title')
+				button.submit Submit

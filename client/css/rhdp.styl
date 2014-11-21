@@ -14,13 +14,16 @@ lightfg = #f0f0f0
 
 bluefg = #29c596
 
-headerheight = 42px
-toolbarheight = 32px
-
-topicwidth = 20%
+headerinner = 40px
+toolbarinner = 30px
 
 headerborder = 2px
 toolbarborder = 2px
+
+headerheight = headerinner + headerborder
+toolbarheight = toolbarinner + toolbarborder
+
+topicwidth = 20%
 
 transition()
 	-webkit-transition arguments
@@ -46,14 +49,15 @@ html, body
 
 *
 	outline none
-	font-family 'Open Sans', Helvetica, sans-serif
-	transition .1s
 	box-sizing border-box
+
+#wrapper *, .render, .form > *
+	font-family 'Open Sans', Helvetica, sans-serif
 	text-shadow 0 0 3px #111
+	transition .1s
 
 	&:active
-		transition .05s ease-in
-
+		transition .02s ease-in
 a
 	text-decoration none
 
@@ -93,12 +97,18 @@ a
 	background darkbg
 	border-bottom toolbarborder solid mediumbg
 
+	button
+		width 80px
+		line-height 10px
+
 	> *
 		float right
 		color mediumfg
 		background mediumbg
 		border 0
 		border-left 1px solid darkbg
+		height 100%
+		padding 10px
 
 		&:hover
 			background lightbg
@@ -134,23 +144,32 @@ a
 	width 100%
 	overflow auto
 
-#submit
-	height 100%
-	width 80px
-	padding 10px
-	line-height 10px
-
 #search
-	height 100%
 	width 221px
-	padding 10px
 
 .article
 	height 100%
 	width 100%
+
+	button
+		width 80px
+		line-height 10px
+		color darkfg
+		background darkbg
+		border 0
+		padding 10px
+
+		&:hover
+			background mediumbg
+
+		&:active
+			background bg
+
+.article, .render
 	padding 20px
 	color lightfg
-	overflow auto
+	overflow-y scroll
+	word-wrap break-word
 
 .topicnode
 	width 100%
@@ -166,3 +185,78 @@ a
 
 	&:hover, &.selected
 		background lightbg
+
+#modal
+	background rgba(0, 0, 0, .5)
+	position fixed
+	top 0
+	left 0
+	right 0
+	bottom 0
+
+#edit
+	position absolute
+	top 10%
+	left 10%
+	right 10%
+	bottom 10%
+	overflow hidden
+
+	.wrap
+		position absolute
+		top 0
+		left 0
+		right 0
+		bottom toolbarheight
+
+		.editwrap, .render
+			position absolute
+			top 0
+			bottom 0
+
+		.editwrap
+			left 0
+			right 50%
+			z-index 1
+
+		.render
+			left 50%
+			right 0
+			background bg
+			z-index 2
+			overflow-y scroll
+
+		.CodeMirror
+			height 100%
+
+
+	.form
+		position absolute
+		left 0
+		right 0
+		bottom 0
+		height toolbarheight
+		border-top toolbarborder solid darkbg
+
+		> *
+			color mediumfg
+			background mediumbg
+			border 0
+			height 100%
+			padding 10px
+
+			&:not(:first-child)
+				border-left 1px solid darkbg
+
+			&:hover
+				background lightbg
+
+			&:active
+				background darkbg
+
+		.title
+			width calc(100% - 80px)
+
+		.submit
+			width 80px
+			line-height 10px
